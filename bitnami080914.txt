@@ -1,0 +1,26 @@
+Bitnami
+	Abrirlo y iniciar sesion en el php my admin; 
+	usuario: root
+	contraseña: sistemas
+
+Vamos a crear una base de datos que se llame dbprueba y dentro tendremos una tabla que se llame categoria, que va a tener dos columnas (id y nombre).
+ -El cotejamiento es el orden de las palabras para odenarlas alfabeticamente. (Normalmente se utiliza utf8_spanish_ci)
+ - id (serial, primary key, AI(auto-increment))
+ - nombre (varchar, long 30)
+Añadimos a la tabla 3 columnas:
+	insert into categoria (nombre) values ('categoria uno');
+	insert into categoria (nombre) values ('categoria dos');
+	insert into categoria (nombre) values ('categoria tres');
+
+Borramos la tabla con (drop table categoria) y la volvemos a añadir con ordenes:
+
+	create table categoria (
+	id serial primary key,
+  	nombre varchar(30) not null
+	);
+
+Para llenar la tabla con ordenes:
+
+	insert into categoria (nombre) values ('categoria uno');
+	insert into categoria (nombre) values ('categoria dos');
+	insert into categoria (nombre) values ('categoria tres');
