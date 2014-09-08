@@ -1,0 +1,29 @@
+Instalamos el git:
+	Desde el synaptic.
+	Comprobamos con el comando git status en el terminal si ya esta instalado.
+
+Crear repositorio en git hub el repositorio ad:
+	Creamos el repositorio cuando entramos en el git.
+
+Clonamos en nuestro home:
+	git clone + https://github.com/rubenramos/adRuben.git ( url del directorio git hub)
+	Despues accedemois a la carpeta con el terminal y ejecutamos git status
+
+Antes de confirmar (git commit...) debemos haber configurado nuestro git: 
+	git help config → para saber los comandos.
+	git config --global user.name rubenramos (Para ponerle un usuario)
+	git config --global user.email rubenbaloncesto@gmail.com (Para ponerle un email)
+
+Al ejecutar los comandos git congif, necesitas estar dentro de la carpeta de ad (adRuben)
+
+	git add . (marca todos los archivos pendientes)
+	git add “nombre del archivo”  (marca solo ese archivo)
+
+	git commit -m “Comentario” (sube todos los archivos que habiamos marcado con el add)
+	Ahora estaría ya todo subido al local, faltaría subir al repositorio de git hub.
+
+También nos avisa para establecer:
+	git config --global push.default simple
+Después ya ponemos el git push y nos pedira el usuario y la contraseña para subir los archivos que teníamos en local.
+
+	git clone + https://github.com/luisvelasco/ad.git  + “nombre de la carpeta” (Para hacer un clonado)
