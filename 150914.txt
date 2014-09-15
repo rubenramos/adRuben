@@ -1,0 +1,8 @@
+Para poder acceder a una base de datos desde C# tenemos que instalar desde synaptic la libreria "libmysql-cil-dev"
+
+Para insertar desde monodevelop en una DB:
+MySqlCommand mySqlCommand = mySqlConnection.CreateCommand ();
+			mySqlCommand.CommandText = 
+				string.Format ("insert into categoria (nombre) values ('{0}')", DateTime.Now);
+
+			mySqlCommand.ExecuteNonQuery ();
