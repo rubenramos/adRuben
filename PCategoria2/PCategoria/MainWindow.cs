@@ -1,88 +1,79 @@
 using Gtk;
-using MySql.Data.MySqlClient;
 using System;
+using System.Data;
+using SerpisAd;
 using PCategoria;
 
 public partial class MainWindow: Gtk.Window
-{
+{	
+	private IDbConnection dbConnection;
 	private ListStore listStore;
-
-	private MySqlConnection mySqlConnection;
 
 	public MainWindow (): base (Gtk.WindowType.Toplevel)
 	{
 		Build ();
 
-		deleteAction.Sensitive = false; 
+		deleteAction.Sensitive = false;
 		editAction.Sensitive = false;
-		mySqlConnection = Add.Instance.MySqlConnection;
-		mySqlConnection.Open ();
 
-		mySqlConnection = new MySqlConnection (
-			"Server=localhost;Database=dbprueba;User ID=root;Password=sistemas"
-		);
-		mySqlConnection.Open ();
+		dbConnection = App.Instance.DbConnection;
 
 		treeView.AppendColumn ("id", new CellRendererText (), "text", 0);
 		treeView.AppendColumn ("nombre", new CellRendererText (), "text", 1);
-		listStore = new ListStore (typeof(string), typeof(string));
-		treeView.Model = listStore; // en java seria treeView.setModel(listStore)
+		listStore = new ListStore (typeof(ulong), typeof(string));
+		treeView.Model = listStore;
 
 		fillListStore ();
 
 		treeView.Selection.Changed += selectionChanged;
 	}
 
-	private void selectionChanged( object sender, EventArgs e) {
+	private void selectionChanged (object sender, EventArgs e) {
 		Console.WriteLine ("selectionChanged");
 		bool hasSelected = treeView.Selection.CountSelectedRows () > 0;
 		deleteAction.Sensitive = hasSelected;
 		editAction.Sensitive = hasSelected;
 	}
 
+	private void fillListStore() {
+		IDbCommand dbCommand = dbConnection.CreateCommand ();
+		dbCommand.CommandText = "select * from categoria";
 
-		private void fillListStore() {
-		MySqlCommand mySqlCommand = mySqlConnection.CreateCommand ();
-		mySqlCommand.CommandText = "select * from categoria";
-
-		MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader ();
-		while (mySqlDataReader.Read()) {
-			object id = mySqlDataReader ["id"].ToString();
-			//Lo convertimos con el ToString para que no de error.
-			object nombre = mySqlDataReader ["nombre"];
+		IDataReader dataReader = dbCommand.ExecuteReader ();
+		while (dataReader.Read()) {
+			object id = dataReader ["id"];
+			object nombre = dataReader ["nombre"];
 			listStore.AppendValues (id, nombre);
 		}
-		mySqlDataReader.Close ();
-
-
+		dataReader.Close ();
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
 	{
-		mySqlConnection.Close ();
+		dbConnection.Close ();
 		Application.Quit ();
 		a.RetVal = true;
 	}
 
 	protected void OnAddActionActivated (object sender, EventArgs e)
 	{
-		string insertSql = string.Format (
+		string insertSql = string.Format(
 			"insert into categoria (nombre) values ('{0}')",
 			"Nuevo " + DateTime.Now
 		);
 		Console.WriteLine ("insertSql={0}", insertSql);
-		MySqlCommand mySqlCommand = mySqlConnection.CreateCommand ();
-		mySqlCommand.CommandText = insertSql;
+		IDbCommand dbCommand = dbConnection.CreateCommand ();
+		dbCommand.CommandText = insertSql;
 
-		mySqlCommand.ExecuteNonQuery ();
-
+		dbCommand.ExecuteNonQuery ();
 	}
-	
+
 	protected void OnRefreshActionActivated (object sender, EventArgs e)
 	{
 		listStore.Clear ();
 		fillListStore ();
 	}
+
 	protected void OnDeleteActionActivated (object sender, EventArgs e)
 	{
 		MessageDialog messageDialog = new MessageDialog (
@@ -93,7 +84,7 @@ public partial class MainWindow: Gtk.Window
 			"¿Quieres eliminar el registro?"
 		);
 		messageDialog.Title = Title;
-		ResponseType response = (ResponseType)messageDialog.Run ();
+		ResponseType response = (ResponseType) messageDialog.Run ();
 		messageDialog.Destroy ();
 
 		if (response != ResponseType.Yes)
@@ -103,18 +94,17 @@ public partial class MainWindow: Gtk.Window
 		treeView.Selection.GetSelected (out treeIter);
 		object id = listStore.GetValue (treeIter, 0);
 		string deleteSql = string.Format ("delete from categoria where id={0}", id);
-		MySqlCommand mySqlCommand = mySqlConnection.CreateCommand ();
-		mySqlCommand.CommandText = deleteSql;
+		IDbCommand dbCommand = dbConnection.CreateCommand ();
+		dbCommand.CommandText = deleteSql;
 
-		mySqlCommand.ExecuteNonQuery (); 
-
-
+		dbCommand.ExecuteNonQuery ();
 	}
 
-	
 	protected void OnEditActionActivated (object sender, EventArgs e)
 	{
-		CategoriaView categoriaView = new CategoriaView (5);
-
+		TreeIter treeIter;
+		treeView.Selection.GetSelected (out treeIter);
+		object id = listStore.GetValue (treeIter, 0);
+		CategoriaView categoriaView = new CategoriaView (id);
 	}
 }

@@ -1,8 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../PSerpis/PSerpis/MyClass.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PSerpis/MyClass.cs">
     <Files>
-      <File FileName="../PSerpis/PSerpis/MyClass.cs" Line="12" Column="1" />
+      <File FileName="PSerpis/MyClass.cs" Line="12" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

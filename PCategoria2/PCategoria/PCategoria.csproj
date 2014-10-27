@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{737087C9-A547-4B1F-AFB0-8DBE965E8887}</ProjectGuid>
+    <ProjectGuid>{57BB87DA-840F-4F61-A04C-BFC6957E446B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>PCategoria</RootNamespace>
     <AssemblyName>PCategoria</AssemblyName>
@@ -78,4 +78,10 @@
     <Compile Include="gtk-gui\PCategoria.CategoriaView.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="PSerpisAd\PSerpisAd.csproj">
+      <Project>{629E8C0D-27A4-4298-9BCB-08DC8FF6C7EE}</Project>
+      <Name>PSerpisAd</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

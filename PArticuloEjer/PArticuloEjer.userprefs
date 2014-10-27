@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="PArticuloEjer/MainWindow.cs">
+    <Files>
+      <File FileName="PArticuloEjer/Program.cs" Line="5" Column="16" />
+      <File FileName="PArticuloEjer/MainWindow.cs" Line="67" Column="26" />
+      <File FileName="../adLuis/PCategoria/PCategoria/MainWindow.cs" Line="36" Column="38" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCategoria", "PCategoria.csproj", "{57BB87DA-840F-4F61-A04C-BFC6957E446B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSerpisAd", "PSerpisAd\PSerpisAd.csproj", "{629E8C0D-27A4-4298-9BCB-08DC8FF6C7EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57BB87DA-840F-4F61-A04C-BFC6957E446B}.Debug|x86.ActiveCfg = Debug|x86
+		{57BB87DA-840F-4F61-A04C-BFC6957E446B}.Debug|x86.Build.0 = Debug|x86
+		{57BB87DA-840F-4F61-A04C-BFC6957E446B}.Release|x86.ActiveCfg = Release|x86
+		{57BB87DA-840F-4F61-A04C-BFC6957E446B}.Release|x86.Build.0 = Release|x86
+		{629E8C0D-27A4-4298-9BCB-08DC8FF6C7EE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{629E8C0D-27A4-4298-9BCB-08DC8FF6C7EE}.Debug|x86.Build.0 = Debug|Any CPU
+		{629E8C0D-27A4-4298-9BCB-08DC8FF6C7EE}.Release|x86.ActiveCfg = Release|Any CPU
+		{629E8C0D-27A4-4298-9BCB-08DC8FF6C7EE}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = PCategoria.csproj
+	EndGlobalSection
+EndGlobal

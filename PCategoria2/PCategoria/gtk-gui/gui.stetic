@@ -10,17 +10,17 @@
   </import>
   <widget class="Gtk.Window" id="MainWindow" design-size="400 300">
     <action-group name="Default">
-      <action id="addAction">
-        <property name="Type">Action</property>
-        <property name="Label" translatable="yes" />
-        <property name="StockId">gtk-add</property>
-        <signal name="Activated" handler="OnAddActionActivated" />
-      </action>
       <action id="refreshAction">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
         <property name="StockId">gtk-refresh</property>
         <signal name="Activated" handler="OnRefreshActionActivated" />
+      </action>
+      <action id="addAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-add</property>
+        <signal name="Activated" handler="OnAddActionActivated" />
       </action>
       <action id="deleteAction">
         <property name="Type">Action</property>
@@ -36,7 +36,7 @@
       </action>
     </action-group>
     <property name="MemberName" />
-    <property name="Title" translatable="yes">MainWindow</property>
+    <property name="Title" translatable="yes">Categoria</property>
     <property name="WindowPosition">CenterOnParent</property>
     <signal name="DeleteEvent" handler="OnDeleteEvent" />
     <child>
@@ -47,9 +47,9 @@
           <widget class="Gtk.Toolbar" id="toolbar1">
             <property name="MemberName" />
             <property name="ShowArrow">False</property>
-            <node name="__gtksharp_110_Stetic_Editor_ActionToolbar" type="Toolbar">
-              <node type="Toolitem" action="addAction" />
+            <node name="toolbar1" type="Toolbar">
               <node type="Toolitem" action="refreshAction" />
+              <node type="Toolitem" action="addAction" />
               <node type="Toolitem" action="deleteAction" />
               <node type="Toolitem" action="editAction" />
             </node>
@@ -84,12 +84,13 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="PCategoria.CategoriaView" design-size="400 121">
+  <widget class="Gtk.Window" id="PCategoria.CategoriaView" design-size="400 300">
     <action-group name="Default">
       <action id="saveAction">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
         <property name="StockId">gtk-save</property>
+        <signal name="Activated" handler="OnSaveActionActivated" />
       </action>
     </action-group>
     <property name="MemberName" />
@@ -103,7 +104,7 @@
           <widget class="Gtk.Toolbar" id="toolbar1">
             <property name="MemberName" />
             <property name="ShowArrow">False</property>
-            <node name="__gtksharp_85_Stetic_Editor_ActionToolbar" type="Toolbar">
+            <node name="toolbar1" type="Toolbar">
               <node type="Toolitem" action="saveAction" />
             </node>
           </widget>
