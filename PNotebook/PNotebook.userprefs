@@ -5,7 +5,7 @@
       <File FileName="PNotebook/Program.cs" Line="1" Column="1" />
       <File FileName="PNotebook/MainWindow.cs" Line="13" Column="29" />
       <File FileName="PNotebook/MyTreeView.cs" Line="8" Column="12" />
-      <File FileName="../../adLuis/PNotebook/PNotebook/MainWindow.cs" Line="18" Column="5" />
+      <File FileName="../../adLuis/PNotebook/PNotebook/MainWindow.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

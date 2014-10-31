@@ -9,6 +9,10 @@ public partial class MainWindow
 	private global::Gtk.Action deleteAction;
 	private global::Gtk.Action refreshAction;
 	private global::Gtk.Action Action;
+	private global::Gtk.Action addAction1;
+	private global::Gtk.Action editAction1;
+	private global::Gtk.Action deleteAction1;
+	private global::Gtk.Action refreshAction1;
 	private global::Gtk.VBox vbox1;
 	private global::Gtk.Toolbar toolbar1;
 	private global::Gtk.Notebook notebook1;
@@ -19,10 +23,16 @@ public partial class MainWindow
 	private global::Gtk.ComboBox combobox2;
 	private global::Gtk.Entry entry2;
 	private global::Gtk.ScrolledWindow scrolledwindow1;
-	private global::Gtk.TreeView treeView;
+	private global::Gtk.TreeView treeView1;
 	private global::Gtk.Label label1;
 	private global::Gtk.VBox vbox3;
 	private global::Gtk.Toolbar toolbar3;
+	private global::Gtk.HBox hbox2;
+	private global::Gtk.ComboBox combobox3;
+	private global::Gtk.ComboBox combobox4;
+	private global::Gtk.Entry entry3;
+	private global::Gtk.ScrolledWindow scrolledwindow2;
+	private global::Gtk.TreeView treeView2;
 	private global::Gtk.Label label2;
 
 	protected virtual void Build ()
@@ -43,6 +53,14 @@ public partial class MainWindow
 		w1.Add (this.refreshAction, null);
 		this.Action = new global::Gtk.Action ("Action", null, null, null);
 		w1.Add (this.Action, null);
+		this.addAction1 = new global::Gtk.Action ("addAction1", null, null, "gtk-add");
+		w1.Add (this.addAction1, null);
+		this.editAction1 = new global::Gtk.Action ("editAction1", null, null, "gtk-edit");
+		w1.Add (this.editAction1, null);
+		this.deleteAction1 = new global::Gtk.Action ("deleteAction1", null, null, "gtk-delete");
+		w1.Add (this.deleteAction1, null);
+		this.refreshAction1 = new global::Gtk.Action ("refreshAction1", null, null, "gtk-refresh");
+		w1.Add (this.refreshAction1, null);
 		this.UIManager.InsertActionGroup (w1, 0);
 		this.AddAccelGroup (this.UIManager.AccelGroup);
 		this.Name = "MainWindow";
@@ -105,6 +123,7 @@ public partial class MainWindow
 		this.entry2 = new global::Gtk.Entry ();
 		this.entry2.CanFocus = true;
 		this.entry2.Name = "entry2";
+		this.entry2.Text = global::Mono.Unix.Catalog.GetString ("Empieza por");
 		this.entry2.IsEditable = true;
 		this.entry2.InvisibleChar = '•';
 		this.hbox1.Add (this.entry2);
@@ -121,10 +140,10 @@ public partial class MainWindow
 		this.scrolledwindow1.Name = "scrolledwindow1";
 		this.scrolledwindow1.ShadowType = ((global::Gtk.ShadowType)(1));
 		// Container child scrolledwindow1.Gtk.Container+ContainerChild
-		this.treeView = new global::Gtk.TreeView ();
-		this.treeView.CanFocus = true;
-		this.treeView.Name = "treeView";
-		this.scrolledwindow1.Add (this.treeView);
+		this.treeView1 = new global::Gtk.TreeView ();
+		this.treeView1.CanFocus = true;
+		this.treeView1.Name = "treeView1";
+		this.scrolledwindow1.Add (this.treeView1);
 		this.vbox2.Add (this.scrolledwindow1);
 		global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.scrolledwindow1]));
 		w9.Position = 2;
@@ -140,7 +159,7 @@ public partial class MainWindow
 		this.vbox3.Name = "vbox3";
 		this.vbox3.Spacing = 6;
 		// Container child vbox3.Gtk.Box+BoxChild
-		this.UIManager.AddUiFromString ("<ui><toolbar name='toolbar3'/></ui>");
+		this.UIManager.AddUiFromString ("<ui><toolbar name='toolbar3'><toolitem name='addAction1' action='addAction1'/><toolitem name='editAction1' action='editAction1'/><toolitem name='deleteAction1' action='deleteAction1'/><toolitem name='refreshAction1' action='refreshAction1'/></toolbar></ui>");
 		this.toolbar3 = ((global::Gtk.Toolbar)(this.UIManager.GetWidget ("/toolbar3")));
 		this.toolbar3.Name = "toolbar3";
 		this.toolbar3.ShowArrow = false;
@@ -149,9 +168,57 @@ public partial class MainWindow
 		w11.Position = 0;
 		w11.Expand = false;
 		w11.Fill = false;
+		// Container child vbox3.Gtk.Box+BoxChild
+		this.hbox2 = new global::Gtk.HBox ();
+		this.hbox2.Name = "hbox2";
+		this.hbox2.Spacing = 6;
+		// Container child hbox2.Gtk.Box+BoxChild
+		this.combobox3 = global::Gtk.ComboBox.NewText ();
+		this.combobox3.Name = "combobox3";
+		this.hbox2.Add (this.combobox3);
+		global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.combobox3]));
+		w12.Position = 0;
+		w12.Expand = false;
+		w12.Fill = false;
+		// Container child hbox2.Gtk.Box+BoxChild
+		this.combobox4 = global::Gtk.ComboBox.NewText ();
+		this.combobox4.Name = "combobox4";
+		this.hbox2.Add (this.combobox4);
+		global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.combobox4]));
+		w13.Position = 1;
+		w13.Expand = false;
+		w13.Fill = false;
+		// Container child hbox2.Gtk.Box+BoxChild
+		this.entry3 = new global::Gtk.Entry ();
+		this.entry3.CanFocus = true;
+		this.entry3.Name = "entry3";
+		this.entry3.Text = global::Mono.Unix.Catalog.GetString ("Empieza por");
+		this.entry3.IsEditable = true;
+		this.entry3.InvisibleChar = '•';
+		this.hbox2.Add (this.entry3);
+		global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.entry3]));
+		w14.Position = 2;
+		this.vbox3.Add (this.hbox2);
+		global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.vbox3 [this.hbox2]));
+		w15.Position = 1;
+		w15.Expand = false;
+		w15.Fill = false;
+		// Container child vbox3.Gtk.Box+BoxChild
+		this.scrolledwindow2 = new global::Gtk.ScrolledWindow ();
+		this.scrolledwindow2.CanFocus = true;
+		this.scrolledwindow2.Name = "scrolledwindow2";
+		this.scrolledwindow2.ShadowType = ((global::Gtk.ShadowType)(1));
+		// Container child scrolledwindow2.Gtk.Container+ContainerChild
+		this.treeView2 = new global::Gtk.TreeView ();
+		this.treeView2.CanFocus = true;
+		this.treeView2.Name = "treeView2";
+		this.scrolledwindow2.Add (this.treeView2);
+		this.vbox3.Add (this.scrolledwindow2);
+		global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.vbox3 [this.scrolledwindow2]));
+		w17.Position = 2;
 		this.notebook1.Add (this.vbox3);
-		global::Gtk.Notebook.NotebookChild w12 = ((global::Gtk.Notebook.NotebookChild)(this.notebook1 [this.vbox3]));
-		w12.Position = 1;
+		global::Gtk.Notebook.NotebookChild w18 = ((global::Gtk.Notebook.NotebookChild)(this.notebook1 [this.vbox3]));
+		w18.Position = 1;
 		// Notebook tab
 		this.label2 = new global::Gtk.Label ();
 		this.label2.Name = "label2";
@@ -159,8 +226,8 @@ public partial class MainWindow
 		this.notebook1.SetTabLabel (this.vbox3, this.label2);
 		this.label2.ShowAll ();
 		this.vbox1.Add (this.notebook1);
-		global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.notebook1]));
-		w13.Position = 1;
+		global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.notebook1]));
+		w19.Position = 1;
 		this.Add (this.vbox1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
@@ -171,7 +238,12 @@ public partial class MainWindow
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 		this.quitAction.Activated += new global::System.EventHandler (this.OnQuitActionActivated);
 		this.addAction.Activated += new global::System.EventHandler (this.OnAddActionActivated);
+		this.editAction.Activated += new global::System.EventHandler (this.OnEditActionActivated);
 		this.deleteAction.Activated += new global::System.EventHandler (this.OnDeleteActionActivated);
 		this.refreshAction.Activated += new global::System.EventHandler (this.OnRefreshActionActivated);
+		this.addAction1.Activated += new global::System.EventHandler (this.OnAddAction1Activated);
+		this.editAction1.Activated += new global::System.EventHandler (this.OnEditAction1Activated);
+		this.deleteAction1.Activated += new global::System.EventHandler (this.OnDeleteAction1Activated);
+		this.refreshAction1.Activated += new global::System.EventHandler (this.OnRefreshAction1Activated);
 	}
 }
