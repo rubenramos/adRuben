@@ -1,10 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="PArticuloEjer/Properties/ArticuloView.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PComboBox/MainWindow.cs">
     <Files>
-      <File FileName="PArticuloEjer/Program.cs" Line="1" Column="1" />
-      <File FileName="PArticuloEjer/MainWindow.cs" Line="1" Column="1" />
-      <File FileName="PArticuloEjer/Properties/ArticuloView.cs" Line="19" Column="47" />
+      <File FileName="PComboBox/Program.cs" Line="1" Column="1" />
+      <File FileName="PComboBox/MainWindow.cs" Line="47" Column="43" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

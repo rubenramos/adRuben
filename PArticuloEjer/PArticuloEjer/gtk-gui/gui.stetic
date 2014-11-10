@@ -406,15 +406,14 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.Entry" id="entryCategoria">
+                  <widget class="Gtk.ComboBox" id="combobox2">
                     <property name="MemberName" />
-                    <property name="CanFocus">True</property>
-                    <property name="IsEditable">True</property>
-                    <property name="InvisibleChar">•</property>
+                    <property name="IsTextCombo">True</property>
+                    <property name="Items" translatable="yes" />
                   </widget>
                   <packing>
                     <property name="Position">1</property>
-                    <property name="AutoSize">True</property>
+                    <property name="AutoSize">False</property>
                   </packing>
                 </child>
                 <child>
@@ -445,15 +444,14 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.Entry" id="entryPrecio">
+                  <widget class="Gtk.ComboBox" id="combobox1">
                     <property name="MemberName" />
-                    <property name="CanFocus">True</property>
-                    <property name="IsEditable">True</property>
-                    <property name="InvisibleChar">•</property>
+                    <property name="IsTextCombo">True</property>
+                    <property name="Items" translatable="yes" />
                   </widget>
                   <packing>
                     <property name="Position">1</property>
-                    <property name="AutoSize">True</property>
+                    <property name="AutoSize">False</property>
                   </packing>
                 </child>
                 <child>
