@@ -16,18 +16,26 @@ public partial class MainWindow: Gtk.Window
 		
 	
 
-		int categoriaId = 2;
+		int categoriaId = -1;
 
-//		CellRendererText cellRendererText = new CellRendererText ();
-//		comboBox.PackStart (cellRendererText, false);
-//		comboBox.AddAttribute (cellRendererText, "text", 0);
+		CellRendererText cellRendererText = new CellRendererText ();
+		comboBox.PackStart (cellRendererText, false);
+		comboBox.AddAttribute (cellRendererText, "text", 1);
 
-		CellRendererText cellRendererText2 = new CellRendererText ();
-		comboBox.PackStart (cellRendererText2, false);
-		comboBox.AddAttribute (cellRendererText2, "text", 1);
+//		CellRendererText cellRendererText2 = new CellRendererText ();
+//		comboBox.PackStart (cellRendererText2, false);
+//		comboBox.AddAttribute (cellRendererText2, "text", 1);
 
 		ListStore listStore = new ListStore (typeof(int), typeof(string));
-		TreeIter treeIterInicial = listStore.AppendValues (0, "<sin asignar>");
+		TreeIter treeIterInicial = listStore.AppendValues ((ulong)0, "<sin asignar>");
+
+		IDbCommand dbCommand = AppDomain.Instance.DvConnection.CreateCommand ();
+		dbCommand.CommandText = "selected id, nombre from categoria";
+		IDataReader dataReader = dbCommand.ExecuteReader ();
+
+		while (dataReader.Read()) {
+			object id = dataReader ["id"];
+			object nombre = dataReader ["nombre"];
 
 		foreach (Categoria categoria in categorias) {
 			TreeIter currentIter = listStore.AppendValues (categoria.Id, categoria.Nombre);
@@ -44,7 +52,16 @@ public partial class MainWindow: Gtk.Window
 
 		TreeIter currentTreeIter;
 		listStore.GetIterFirst (out currentTreeIter);
-		listStore.GetValue (currentTreeIter, 0);
+		listStore.GetIterFirst (out currentTreeIter);
+		do {
+			if(categoriaId.Equals(listStore.GetValue(treeIterInicial, 0))) { 
+				comboBox.SetActiveIter(currentTreeIter);
+				break;
+			}
+		}
+			while (listStore.IterNext (ref currentTreeIter));
+		//listStore.GetValue (currentTreeIter, 0);
+		
 
 
 
