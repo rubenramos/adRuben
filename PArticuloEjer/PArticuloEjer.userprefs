@@ -1,6 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="PArticuloEjer/Properties/ArticuloView.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PArticuloEjer/MainWindow.cs">
     <Files>
       <File FileName="PArticuloEjer/Program.cs" Line="1" Column="1" />
       <File FileName="PArticuloEjer/MainWindow.cs" Line="1" Column="1" />

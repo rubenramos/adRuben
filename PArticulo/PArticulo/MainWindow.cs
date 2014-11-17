@@ -1,5 +1,8 @@
-using System;
 using Gtk;
+using System;
+using System.Data;
+
+using SerpisAd;
 
 public partial class MainWindow: Gtk.Window
 {	
