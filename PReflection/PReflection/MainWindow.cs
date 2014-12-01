@@ -5,13 +5,35 @@ using PReflection;
 
 public partial class MainWindow: Gtk.Window {	
 	public MainWindow (): base (Gtk.WindowType.Toplevel) {
-		Build ();
-		showInfo(typeof(Categoria));
-		showInfo(typeof(Articulo));
+
+//showInfo(typeof(Categoria))
+//showInfo (typeof(Articulo))		
+//Type type = typeof(MainWindow);
+//		Assembly assembly = Assembly.GetExecutingAssembly();
+//
+//		foreach (Type type in assembly.GetTypes()) 
+//			if (type.IsDefined (typeof(EntityAttribute), true)) {
+//				EntityAttribute entityAttibute = 
+//			  		(EntityAttribute)Attribute.GetCustomAttribute (type, typeof(EntityAttribute));
+//				Console.WriteLine ("type.Name={0} entityAttribute.TableName={1}", 
+//			                   type.Name, entityAttibute.TableName);
+//				//Console.WriteLine ("type.Name={0}", type.Name); 
+//			}
+
 		Categoria categoria = new Categoria (33, "Treinta y tres");
-		showValues (categoria);
+		validate (categoria);
+		categoria.Nombre = "algo";
+		validate (categoria);
 		//showInfo (typeof(Button));
 
+	}
+
+	private void validate(object obj) {
+		ErrorInfo[] errorInfos = Validator.Validate (obj);
+		if (errorInfos.Length == 0)
+			Console.WriteLine ("Sin errores");
+		foreach (ErrorInfo errorInfo in errorInfos)
+			Console.WriteLine ("property={0} message={1}", errorInfo.Property, errorInfo.Message);
 	}
 
 	private void showValues(object obj) {
@@ -32,7 +54,7 @@ public partial class MainWindow: Gtk.Window {
 		FieldInfo[] fields = type.GetFields (BindingFlags.Instance | BindingFlags.NonPublic);
 		foreach (FieldInfo field in fields)
 			//if (field.IsDefined(typeof(IdAttribute), true))
-			Console.WriteLine ("field.Name={0, -30} field.PropertyType={1}", field.Name, field.FieldType);
+			Console.WriteLine ("field.Name={0, -30} field.FieldType={1}", field.Name, field.FieldType);
 	}
 
 

@@ -3,6 +3,7 @@ using Gtk;
 using System.Reflection;
 
 namespace PReflection {
+	[Entity(TableName = "category")]
 	public class Categoria {
 
 		public Categoria(ulong id, string nombre){

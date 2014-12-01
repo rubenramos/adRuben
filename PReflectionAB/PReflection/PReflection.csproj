@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{DC94C4A4-94EC-4763-AAA9-DCB2D0C6932E}</ProjectGuid>
+    <ProjectGuid>{7E851603-A915-4557-A72C-CB87B02237E3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>PReflection</RootNamespace>
     <AssemblyName>PReflection</AssemblyName>
@@ -73,9 +73,11 @@
     <Compile Include="Articulo.cs" />
     <Compile Include="IdAttribute.cs" />
     <Compile Include="EntityAttribute.cs" />
-    <Compile Include="ErrorInfo.cs" />
-    <Compile Include="NotBlankAttribute.cs" />
     <Compile Include="ValidationAttribute.cs" />
+    <Compile Include="NotBlankAttribute.cs" />
+    <Compile Include="ErrorInfo.cs">
+      <DependentUpon>IdAttribute.cs</DependentUpon>
+    </Compile>
     <Compile Include="Validator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
