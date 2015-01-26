@@ -15,12 +15,14 @@ public class HibernateCategoria {
 		entityManagerFactory = 
 				Persistence.createEntityManagerFactory("serpis.ad.jpa.mysql");
 		
-		showCategorias();
 		
 		System.out.println("Añado categorias "+new Date());
 		persistNuevasCategorias();
 		
-		showCategorias();	
+		showCategorias();
+		deleteCategoria((long)12);
+		editCategoria((long)1);
+		showCategorias();
 		entityManagerFactory.close();
 	}
 	
@@ -50,4 +52,26 @@ public class HibernateCategoria {
 		entityManager.getTransaction().commit();
 		entityManager.close();
 	}
+	
+	public static void deleteCategoria(long id){
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+		
+		Categoria categoria = entityManager.find(Categoria.class, id);
+		entityManager.remove(categoria);
+		entityManager.getTransaction().commit();
+		entityManager.close();
+	}
+	
+	public static void editCategoria(long id){
+		EntityManager entityManager=entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+		
+		Categoria categoria = entityManager.find(Categoria.class, id);
+		categoria.setNombre("nombreEditado");
+		
+		entityManager.merge(categoria);
+		entityManager.getTransaction().commit();
+		entityManager.close();
+		}
 }
